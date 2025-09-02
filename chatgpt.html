@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGpt</title>
+    <style>
+        body{
+            background-color: #6dd1ff79;
+            color: rgb(0, 25, 49);
+        }
+        input{
+            
+            width: 500px;
+        }
+       
+     
+
+    </style>
+</head>
+<body>
+    <form id="chatgpt">
+        <label for="tema"></label>
+        <input type="text" id="tema" required>
+        <button type="submit"> Pesquisar  &#x1F50D</button>
+        <br>
+        <label for="resumo">Resumir?</label>
+        <input type="text" id="resumo"  > 
+    </form>
+
+    <div>
+        
+        
+         <h1>Temas disponíveis para pesquisa:</h1>
+    <ul>
+        <li>Computação em nuvem</li>
+        <li>Infraestrutura de TI</li>
+        <li>SaaS</li>
+        <li>PaaS</li>
+        <li>IaaS</li>
+        <li>Virtualização</li>
+    </ul>
+
+    <hr>
+    <p id="tm"></p>
+    <p id="pa1"></p>
+    <p id="pa2"></p>
+    <p id="pa3"></p>
+    <p id="img"></p>
+    <img src="" alt="">
+    </div>
+
+    <br>
+    <hr>
+    <img src="" alt="">
+
+        
+    
+    <script>
+         const form = document.getElementById('chatgpt');
+
+        form.addEventListener('submit', function (event){
+            event.preventDefault();
+
+
+
+           const tm = document.getElementById('tm');
+
+            let tema = document.getElementById('tema').value;
+            let resumo = document.getElementById('resumo').value;
+
+            if(tema == "Computação em nuvem"){
+    
+                tm.innerHTML="Computação em nuvem, ou cloud computing, é um modelo de entrega de serviços de tecnologia da informação por meio da internet. Em vez de depender de servidores físicos locais, usuários e empresas acessam recursos como armazenamento, processamento, bancos de dados, redes e softwares hospedados em servidores remotos. Essa abordagem permite maior flexibilidade, escalabilidade e redução de custos, já que os recursos são utilizados sob demanda e pagos conforme o consumo. A nuvem pode ser pública, privada ou híbrida, dependendo do nível de controle e segurança desejado. No cotidiano, a computação em nuvem está presente em serviços como e-mail, plataformas de streaming, redes sociais, aplicativos de produtividade e backup automático de arquivos. Para as empresas, ela representa uma oportunidade de inovação, agilidade e expansão, permitindo que tecnologias avançadas como inteligência artificial, big data e machine learning sejam implementadas sem grandes investimentos em infraestrutura física. Com isso, a nuvem se tornou essencial para a transformação digital e para a competitividade no mercado atual. <br>";
+                
+                pa1.innerText="PRINCIPAIS EMPRESAS QUE OFERECEM SERVIÇOS DE COMPUTAÇÃO EM NUVEM: Google Cloud, Amazon Web Services e Microsoft Azure \n";
+                
+                pa2.innerText="EXEMPLOS: Gmail, Google Drive, Microsoft 365 \n";
+                
+                img.innerHTML='<img src="data:image/jpeg;base64,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" alt="imagem da internet">'
+        
+                if(resumo == "Sim"){
+                    alert("Resumo: Vários recursos físicos e virtuais que fazem o sistema funcionar dentro de uma organização. Pode ser uma estrutura local, nuvem ou híbrida.");
+                }
+            }
+            
+            else if(tema == "Infraestrutura de TI"){
+               tm.innerHTML("A infraestrutura de Tecnologia da Informação (TI) é o conjunto de recursos físicos e virtuais que sustentam o funcionamento de sistemas, redes e serviços digitais dentro de uma organização. Ela inclui componentes como servidores, computadores, roteadores, switches, sistemas operacionais, softwares corporativos, redes de comunicação, armazenamento de dados e instalações físicas que abrigam esses equipamentos. Essa estrutura pode ser local, em nuvem ou híbrida, dependendo das necessidades da empresa. A infraestrutura tradicional é composta por equipamentos instalados fisicamente na empresa, exigindo manutenção constante e espaço físico adequado. Já a infraestrutura em nuvem permite que os recursos sejam acessados remotamente, oferecendo maior flexibilidade, escalabilidade e redução de custos operacionais. A infraestrutura híbrida combina elementos locais com serviços em nuvem, proporcionando equilíbrio entre controle e agilidade. Uma infraestrutura de TI bem planejada é essencial para garantir segurança, confiabilidade, produtividade e inovação nos negócios, além de permitir que a empresa cresça de forma sustentável e acompanhe as transformações tecnológicas do mercado.");
+                
+               pa1.innerHTML("PRINCIPAIS EMPRESAS: Microsoft, Oracle, SAP, Dell, HP, Apple.");
+
+               pa2.innerHTML("EXEMPLOS: Redes corporativas (redes internas), firewalls");
+                if(resumo == "Sim"){
+                    alert("Resumo: É um modo de entregar serviços tecnológicos usando a internet. Para isso, ele não depende de servidores físicos, os seus recursos hospedados em servidores remotos.");
+                }
+            }
+
+            else if(tema == "Saas"){
+                alert("SaaS, ou Software como Serviço, é um modelo de distribuição de software em que as aplicações são hospedadas por um fornecedor e disponibilizadas aos usuários pela internet. Em vez de instalar o software localmente em computadores ou servidores, os usuários acessam as funcionalidades diretamente por meio de navegadores, mediante pagamento de uma assinatura mensal ou anual. Esse modelo oferece diversas vantagens, como atualizações automáticas, escalabilidade, redução de custos com infraestrutura e maior acessibilidade, já que o serviço pode ser utilizado de qualquer lugar com conexão à internet. Empresas de todos os portes adotam soluções SaaS para áreas como gestão de relacionamento com clientes (CRM), produtividade, armazenamento em nuvem, comunicação e colaboração. Exemplos populares incluem Microsoft 365, Google Workspace, Salesforce, Dropbox e Zoom. A adoção do SaaS tem crescido significativamente por permitir que organizações se concentrem em seus objetivos estratégicos, enquanto deixam a manutenção, segurança e evolução do software sob responsabilidade do fornecedor.");
+                if(resumo == "Sim"){
+                    alert("Resumo: Tipo de distribuição de software, onde as aplicações são disponibilizadas por um fornecedor pela internet")
+            }
+
+            
+            else if(tema == "Paas"){
+                alert("PaaS, ou Plataforma como Serviço, é um modelo de computação em nuvem que fornece aos desenvolvedores um ambiente completo para criar, testar, implantar e gerenciar aplicações sem a necessidade de lidar com a infraestrutura subjacente. Diferente do modelo tradicional, em que é preciso configurar servidores, redes e sistemas operacionais, o PaaS oferece todos esses recursos de forma integrada e automatizada, permitindo que os profissionais de tecnologia se concentrem exclusivamente no desenvolvimento e na inovação. A plataforma inclui sistemas operacionais, bancos de dados, ferramentas de desenvolvimento, middleware e serviços de hospedagem, tudo gerenciado pelo provedor de nuvem. Isso reduz o tempo de codificação, facilita a escalabilidade e melhora a eficiência operacional. Empresas que adotam PaaS ganham agilidade no lançamento de produtos, maior flexibilidade para experimentar novas soluções e redução significativa de custos com infraestrutura e manutenção. É uma solução ideal para equipes de desenvolvimento que buscam rapidez, segurança e liberdade para criar aplicações robustas e escaláveis.");
+                if(resumo == "Sim"){
+                    alert("Resumo: Computação em nuvem que fornece para os desenvolvedores um local completo. Tem todos os recursos de forma integrada e automática.");
+            }
+        }
+
+            else if(tema == "IaaS"){
+                alert("IaaS, ou Infraestrutura como Serviço, é um modelo de computação em nuvem que fornece recursos de infraestrutura de TI sob demanda, como servidores, armazenamento, redes e máquinas virtuais, acessíveis pela internet. Em vez de investir em equipamentos físicos e gerenciar data centers próprios, as empresas podem alugar esses recursos de provedores especializados, pagando apenas pelo que utilizam. Isso permite maior flexibilidade, escalabilidade e redução de custos operacionais, além de facilitar a adaptação rápida às mudanças nas demandas de negócios. Os provedores de IaaS, como Amazon Web Services (AWS), Microsoft Azure e Google Cloud, são responsáveis pela manutenção da infraestrutura física, enquanto os clientes gerenciam seus sistemas operacionais, aplicações e dados. O modelo é ideal para empresas que precisam de alto desempenho, segurança e agilidade, especialmente em projetos que envolvem inteligência artificial, análise de dados ou aplicações nativas em nuvem. Em 2024, o mercado global de IaaS cresceu 22,5%, atingindo US$ 171,8 bilhões, impulsionado pela demanda por soluções de IA e pela modernização de ambientes corporativos.");
+                if(resumo == "Sim"){
+                    alert("Resumo: Tipo de computação em nuvem fornece recursos de infraestrutura de TI acessíveis pela internet, pagando apenas pelo o que utilizam.");
+                }
+            }
+
+             else if(tema == "Virtualização"){
+                alert(" Virtualização é uma tecnologia que permite criar ambientes computacionais virtuais a partir de recursos físicos, como servidores, memória, armazenamento e redes. Por meio de softwares específicos, como hipervisores, é possível dividir um único hardware físico em várias máquinas virtuais (VMs), cada uma com seu próprio sistema operacional e aplicações, funcionando de forma independente. Essa abordagem otimiza o uso dos recursos disponíveis, reduz custos com infraestrutura, facilita o gerenciamento de sistemas e aumenta a escalabilidade dos ambientes de TI. A virtualização é a base da computação em nuvem e está presente em diversos contextos, como servidores, desktops, redes e armazenamento. Com ela, empresas podem executar múltiplos serviços em um único servidor físico, melhorar a segurança por meio de isolamento de ambientes e acelerar processos de desenvolvimento e testes de software. Atualmente, é uma prática padrão na arquitetura de TI corporativa, sendo essencial para a modernização e eficiência dos sistemas empresariais.");
+                if(resumo == "Sim"){
+                    alert("Resumo: Tecnologia que permite criar locais computacionais virtuais a partir de recursos físicos.")
+                }
+            }
+        }
+
+            })
+        
+    </script>
+
+		
+
+			 
+
+
+
+    
+</body>
+</html>
