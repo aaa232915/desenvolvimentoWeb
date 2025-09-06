@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 40px;
+            
+        }
+        .selection{
+            display: none;
+            margin-top: 20px;
+       
+        }
+  
+        h1{
+            font-size: 70px;
+            font-family: fantasy;
+            display: flex;
+            color: rgb(117, 214, 252);
+            justify-content: center;
+        }
+        h2{
+            display: flex;
+            justify-content: center;
+
+        }
+        div{
+            font-size: 40px;
+            
+        }
+       
+         label{
+           
+            
+           
+            display: inline;
+            justify-content: center;
+            margin-left: 580px;
+            /* margin-right: 100px; */
+        }
+        select{
+            font-size: 30px;
+            /* margin-left: 100px; */
+             margin-right: 580px; 
+        }
+        h3{
+            display: flex;
+            justify-content: center;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+         
+        }
+       
+        /* .div1{
+            display: flex;
+            justify-content: center;
+            border: solid rgb(98, 198, 255); 
+        } */
+
+    </style>
+</head>
+<body>
+
+
+        <h1>Calculadora de área</h1>
+
+        
+            <label  for="selecionar" >Escolha qual forma você deseja</label>
+            <select id="selecionar" onchange="escolha()">
+            <option  style="size: 90px;" value="">-- Selecione --</option>
+            <option value="quadrado">Quadrado</option>
+            <option value="circulo">Circulo</option>
+            <option value="triangulo">Triângulo</option>
+            
+       
+        
+
+        </select>
+
+        <!--Formulários para entrada de dados-->
+        <div id="quadrado" class="selection">
+            
+            <h2>Quadrado</h2>
+            <label >Digite o tamanho dos lados do quadrado: <input type="number" style="height: 20px; " id="valorquadrado" required></label>
+
+           <div>
+                <button  style="font-size: 40px;" onclick="calculaAreaQ()">OK</button>
+           </div>
+           
+            
+        </div>
+         
+
+        <div id="circulo" class="selection">
+            <h2>Circulo</h2>
+            <label>Digite o raio do circulo: <input type="number"  style="height: 20px;" id="valorcirculo" required></label>
+
+            <div>
+                <button style="font-size: 40px;" onclick="areaC()">OK</button>
+            </div>
+            
+        </div>
+
+        <h3 id="mostrar"></h3>
+
+  
+
+
+
+        <script id="script1">
+            // Mostra somente o formulário que selecionei
+            function escolha(){
+                const forma = document.getElementById('selecionar').value;
+
+                // Oculta todos os formulários
+                document.querySelectorAll('.selection').forEach(section =>{
+                    section.style.display='none';
+                })
+
+                // Mostra apenas o formulário selecionado
+                if(forma){
+                    document.getElementById(forma).style.display='block';
+                    document.getElementById(resultado).textContent='';
+                }
+            }
+
+            function calculaAreaQ(){
+                
+                const quadrado = document.getElementById('valorquadrado').value;
+
+                document.getElementById('mostrar').textContent =  'Área = ' + quadrado * quadrado;
+            }
+
+            function areaC(){
+                
+                const circulo = parseInt(document.getElementById('valorcirculo').value);
+
+                document.getElementById('mostrar').textContent = 'Área = ' + ((valorcirculo * valorcirculo) / 3.14);
+
+
+            }
+
+
+
+        </script>
+
+   
+
+</body>
+</html>

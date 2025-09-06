@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="0">
+        <label for="input1">Qual é a sua idade?</label>
+        <input type="number" id="input1" required>
+
+        <button type="submit"> Verificar obrigatóriedade</button>
+    </form>
+
+    <div>
+        <p id="obrig"></p>
+
+    </div>
+    
+     <script>
+        const form = document.getElementById('0');
+
+        form.addEventListener('submit', function (event){
+            event.preventDefault();
+            const obrig = document.getElementById('obrig');
+
+            
+
+            let numero1 = parseInt(document.getElementById('input1').value);
+
+            if(numero1 < 16 || numero1 > 69){
+                alert("Você está dispensado.");
+            }
+            else if(numero1 > 17 && numero1 <= 69){
+                alert("O seu voto é obrigatório .");
+            }
+            else if(numero1 == 17 || numero1 == 16){
+                alert("O seu voto é opicional.");
+            }
+        })
+    </script>
+
+</body>
+</html>

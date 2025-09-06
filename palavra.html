@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="palavra">
+         <label for="input1">Escreva uma palavra.</label>
+        <input type="script" id="input1" required>
+
+        <button type="submit">Trancrever a palavra</button>
+    </form>
+
+    <div>
+        <h2>Resultado da palavra:</h2>
+        <p id="resultado"> </p>
+    </div>
+
+    <script>
+        const form = document.getElementById('palavra');
+
+        form.addEventListener('submit', function (event){
+            event.preventDefault();
+            const resultado = document.getElementById('resultado');
+
+            let palavra = document.getElementById('input1').value;
+            return palavra.split('').reverse().join('');
+
+           
+
+           console.log("arroz");
+            // alert(parseFloat(numero1) + parseFloat(numero2) + parseFloat(numero3) + parseFloat(numero4) / 4);
+        })
+    </script>
+
+</body>
+</html>
