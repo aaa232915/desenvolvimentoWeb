@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova</title>
+    <style>
+        body{
+            background:linear-gradient(to right,blue, white) ;
+        }
+        .formLogin{
+            border-bottom: black;
+            background-color: beige;
+
+        }
+        nav{
+            margin-top: 80px;
+            margin-left: 1060px;
+            align-items: left;
+            border: solid black;
+            
+        }
+        div{
+            margin-right: 100px;
+            margin-left: 100px;
+      
+           
+            border: solid black;
+            background-color: rgb(255, 255, 255);
+        }
+        main{
+            border: solid black;
+            background-color: white;
+          
+            display: flex;
+            /* height: 1000px; */
+           
+        }
+        aside{
+            border: solid black;
+            height: 1000px;
+           
+        }
+        ol{
+            width: 280px;
+            height: 1800;
+            /* margin-right: 30px;  */
+           font-size: 45px; 
+           margin-left: 30px;
+
+        }
+        img{
+            display: inline;
+            align-items: center;
+            width: 1200px;
+            height: 505px;
+        }
+        .section2{
+            
+             text-align: justify;
+             display: flex; 
+        }
+        .div2{
+            display: inline;
+        }
+        .article1{
+            border: solid black; 
+            width: 600px;
+        }
+        .article2{
+            
+            border: solid black;
+            margin-left: 30px;
+        }
+        h1{
+            text-align: center;
+            color: black;
+        }
+        p{
+            text-align: justify;
+            
+        }
+        footer{
+            border: solid blanchedalmond;
+            background-color: black;
+            color: white;
+            text-align: center;
+            justify-content: center;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+      
+    </style>
+</head>
+<body>
+    <div>
+    <header>
+        <h1>Computadores mais icônicos da história</h1>
+        <nav>
+            <h2>Entrar</h2>
+        <form id="formLogin">
+    <label for="nome">Nome de usuário:</label>
+    <input type="text" id="nome" required>
+    <label for="senha">Senha:</label>
+    <input type="text" id="senha" required>
+
+    <button type="submit">Fazer login</button>
+  </form>
+        </nav>
+    </header>
+
+    <main> 
+        <aside>
+            <ol>
+                <li><p></p><a href="pagina2.html" target="_blank">Página 2</a></li></p>
+                <li><a href="pagina3.html" target="_blank"><p>Página 3</a></p></li>
+                <li><a href="https://www.tecmundo.com.br/computador-desktop-/106562-conheca-10-iconicos-populares-marcantes-computadores-historia.htm" target="_blank"><p>Página 4</a></p></li>
+            </ol>
+        </aside>
+    
+        <div id="div2">
+            <section id="section1">
+            <img src="data:image/jpeg;base64,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" alt="imagem da internet">
+            </section>
+            <hr>
+        <section class="section2">
+                <article class="article1">
+                    <p>
+                        <h1>Lista de computadores icônicos</h1>
+                        <h2>ENIAC</h2>
+                        ENIAC era um computador gigante mas foi <br> o primeiro da categoria electrónica. <br>
+                        Começou a ser desenvolvido em 1943 para <br> ajudar em cálculos de balística na Segunda Guerra Mundial, <br>
+                        mas só ficou pronto depois das guerras. <br>
+
+                        <h2>Commodore 64</h2>
+                        O Commodore 64, assim chamado porque continha <br> 64kb de memória RAM, era o grande computador da época. <br> 
+                        Com frequência de 1MHz. Foram vendidas cerca <br> de 17 milhões de unidades. <br>
+
+                        <h2>Commodore Amiga</h2>
+                        Um bom upgrade nos computadores. O hardware ganhou <br>uma atualização significativa, <br>
+                        ganhando um processador de 32 bits e uma <br>frequência de 7MHz, 512 KB de memória RAM, <br>
+                        entrada para disquetes e imagem com 4.096 cores. <br>
+
+                        
+    </p>
+            </article>
+
+            <article class="article2">
+                <h1>história</h1>
+                <p>A palavra “computador” vem do verbo “computar” que,<br> por sua vez, significa “calcular”. Sendo assim, <br> 
+                    podemos pensar que a criação de computadores começa <br> na idade antiga, já que a relação de contar já intrigava os homens. <br>
+                    Dessa forma, uma das primeiras máquinas de computar <br>foi o “ábaco”, instrumento mecânico de origem chinesa criado no século V a.C. <br>
+                    Assim, ele é considerado o “primeiro computador”, <br>uma espécie de calculadora que realizava operações algébricas.</p>
+            </article>
+           
+        </section>
+        </div>
+       
+         </div>
+    </main>
+     <footer>
+            <p>Ana Paula Gatto e Arthur Mariano da Luz</p>
+        </footer>
+
+</body>
+</html>
