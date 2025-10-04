@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar em conta já existente</title>
-</head>
-<style>
+      <link rel="icon" type="image/png" href="favicon.ico">
+  <meta charset="UTF-8">
+  <title>Cadastro de novo usuário</title>
+  <style>
     body {
       font-family: Arial, sans-serif;
       margin: 30px;
-      background: #e6e0ff71;
+      background-color: #e6e0ff71;
       text-align: center;
       align-items: center;
     }
@@ -72,30 +71,37 @@
     }
     input{
       margin-left: 10px;
+      
     }
-</style>
+  </style>
+</head>
 <body>
-    <form id="formEntrarConta"> 
-    <h1 >Entrar em uma conta já existente</h1>
-    <br>
-    <label for="nomeUsuario">Nome de usuário:</label>
+
+  
+
+  <form id="formCadastro"> 
+    <h1 >Cadastrar-se</h1>
+    <label for="nomeUsuario">Crie um nome de usuário:</label>
     <input type="text" id="nomeUsuario" required>
-    <label for="senha">Senha:</label>
+    <label for="text">Crie uma senha:</label>
     <input type="password" id="senha" required>
 
-      <button type="submit">Entrar</button>
+      <button type="submit">Cadastrar-se</button>
 
-    <a href="index (1).html"><p>Não tenho conta</p></a>
+    <a href="pagina2.html"><p>Já tenho conta</p></a>
   </form>
-    <script>
+  <!-- <h2>Lista de acessos</h2>
+  <ul id="listaAcessos"></ul> -->
+
+  <script>
     
-    const form = document.getElementById("formEntrarConta");
+    const form = document.getElementById("formCadastro");
     // const lista = document.getElementById("listaAcessos");
 
-    async function entrarConta(nomeUsuario, senha ) {
+    async function cadastrarUsuario(nomeUsuario, senha ) {
       try {
         // Seleciona a rota a ser usada
-        const resposta = await fetch('http://localhost:3000/entrar', {
+        const resposta = await fetch('http://localhost:3000/cadastro', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -111,8 +117,7 @@
       const dados = await resposta.json();
     
       if (resposta.ok) {
-        console.log("Login feito.")
-        window.open('pagina.html', '_blank');  // abre em nova aba
+        console.log("O novo usuário foi cadastrado com sucesso.")
       } else {
         switch (resposta.status) {
           case 400:
@@ -135,6 +140,53 @@
     }
    
 
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // impede o reload da página
+
+      const nomeUsuario = document.getElementById("nomeUsuario").value;
+      const senha = document.getElementById("senha").value;
+
+      
+      // cadastra o produto no banco de dados
+      cadastrarUsuario(nomeUsuario, senha);
+
+      
+
+      // cria o item da lista
+      const li = document.createElement("li");
+      li.textContent = `${nomeUsuario}  ${senha}`;
+
+      // adiciona na lista
+      
+
+      // limpa os campos
+      form.reset();
+    });
+
+
+
+    
+    /*form.addEventListener("submit", function(event) {
+      event.preventDefault(); // impede o reload da página
+
+      const nome = document.getElementById("nomeUsuario").value;
+      const senha = document.getElementById("senha").value;
+
+      
+      // cadastra o produto no banco de dados
+      entrarConta(nomeUsuario, senha);
+
+  
+
+      // cria o item da lista
+     
+
+      // limpa os campos
+      form.reset();
+    });
+    */
+
     </script>
+   
 </body>
 </html>

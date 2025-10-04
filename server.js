@@ -77,6 +77,58 @@ app.get('/api/usuarios', (req, res) => {
   res.json([{ id: 1, nome: 'Alice' }, { id: 2, nome: 'Bob' }]);
 });
 
+app.post('/entrar', (req, res) => {
+  const { nomeUsuario, senha } = req.body;
+
+  if (!nomeUsuario || !senha) {
+    return res.status(400).json({ error: 'nome de usuario e senha são obrigatórios' });
+  }
+
+  const sql = 'SELECT * FROM login WHERE nomeUsuario = ? AND senha = ?';
+  db.query(sql, [nomeUsuario, senha], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+
+    if (results.length === 0) {
+      return res.status(401).json({ error: 'Credenciais inválidas' });
+    }
+
+    // Login bem-sucedido
+    const user = results[0];
+    res.json({
+      message: 'Login bem-sucedido',
+      user: {
+        nomeUsuario: nomeUsuario,
+        senha: senha
+      }
+    });
+  });
+});
+
+app.post('/login', (req, res) => {
+  // As variáveis dentro dos {} recebem os dados que vieram do front-end
+  const { legenda, caminhoPostagem } = req.body;
+
+  //Se os dados que vieram do font-end forem em branco
+  if (!legenda || !caminhoPostagem) {
+    return res.status(400).json({ error: 'Dados incompletos' });
+  }
+
+  //Realiza a inserção dos dados recebidos no banco de dados
+  const sql = 'INSERT INTO posts (legenda, caminhoPostagem) VALUES (?,?)';
+  db.query(sql, [legenda, caminhoPostagem ], (err, result) => {
+    if (err) {
+      if (err.code === 'ER_DUP_ENTRY') {
+        return res.status(409).json({ error: 'Essa nome de usuário já está cadastrado' });
+      }
+      return res.status(500).json({ error: err.message });
+    }
+
+    // Em caso de sucesso encaminha uma mensagem e o id do produto
+    res.status(201).json({ message: 'Post realizado com sucesso', id: result.insertId });
+  });
+});
 
 
 
